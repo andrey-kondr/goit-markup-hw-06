@@ -304,7 +304,7 @@ h1, h2, h3, p, section, ul {
 
 .hero-button:hover,
 .hero-button:focus {
-    color: var(--secondary-text-color);
+    color: var(--service-text-color);
 }
 
 /* преимущества компании */
@@ -670,8 +670,21 @@ h1, h2, h3, p, section, ul {
     cursor: pointer;
 }
 
+.subscribe-button:hover,
+.subscribe-button:focus {
+    color: var(--service-text-color);
+    transition: color 250ms var(--main-animation);
+}
+
 .send-icon {
+    fill: var(--white-color);
     margin-left: 10px;
+}
+
+.subscribe-button:hover .send-icon,
+.subscribe-button:focus .send-icon {
+    fill: var(--service-text-color);
+    transition: fill 250ms var(--main-animation);
 }
 
 
