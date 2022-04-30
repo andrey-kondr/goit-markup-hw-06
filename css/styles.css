@@ -10,6 +10,8 @@
 
 /* цвет иконок #AFB1B8 */
 
+/* цвет текста плейсхолдера rgba(117, 117, 117, 0.5); */
+
 :root {
     --primary-text-color: #757575;
     --secondary-text-color: #212121;
@@ -22,6 +24,8 @@
     --footer-icons-font-color:rgba(255, 255, 255, 0.1);
 
     --main-animation: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --placeholder-color: rgba(117, 117, 117, 0.5);
 }
 
 /* --- */
@@ -668,6 +672,7 @@ h1, h2, h3, p, section, ul {
     background: #2196F3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    border: none;
     cursor: pointer;
 }
 
@@ -940,10 +945,7 @@ h1, h2, h3, p, section, ul {
     position: relative;
     margin-bottom: 10px;
     margin-top: 4px;
-}
-
-.input-area:focus-within .input-name {
-    border-color: var(--accent-color);
+    display: block;
 }
 
 .input-name {
@@ -953,15 +955,15 @@ h1, h2, h3, p, section, ul {
     width: 448px;
     height: 40px;
 
+    color: var(--primary-text-color);
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
-    color: var(--primary-text-color);
 
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     transition: border-color 250ms var(--main-animation);
-
+    outline: none;
     /* make cursor color */
     /* caret-color: var(--accent-color); */
 }
@@ -975,47 +977,82 @@ h1, h2, h3, p, section, ul {
 }
 
 .input-area:focus-within,
+.input-area:focus-within .input-name,
 .input-name:hover,
 .input-area:hover .form-icon,
-.form-icon:hover~.input-name {
+.form-icon:hover ~ .input-name {
     border-color: var(--accent-color);
     fill: var(--accent-color);
 }
 
-.feedback {
+.comment {
     margin-top: 4px;
     margin-bottom: 30px;
     padding: 12px 16px;
 
     height: 120px;
     resize: none;
+    transition: border-color 250ms var(--main-animation);
+    outline: none;
+    /* make cursor color */
+    /* caret-color: var(--accent-color); */
+    
 }
 
-.feedback::placeholder {
+.comment:hover, 
+.comment:focus {
+    border-color: var(--accent-color);
+}
+
+.comment::placeholder {
+    color: var(--placeholder-color);
     margin-left: 16px;
     line-height: 16px;
     letter-spacing: 0.01em;
-    color: rgba(117, 117, 117, 0.5);
 }
 
-.checkbox-field {
+.checkbox-label {
+    position: relative;
+
     margin-bottom: 20px;
-    margin-right: 11px;
-    margin-left: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    padding-left: 38px;
+
+    display: inline-block;
 }
 
 .checkbox {
-    margin-right: 8px;
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.checkbox:checked ~ .icon-checkbox {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+
+    background-image: url('../images/check.svg');
+    background-size: contain;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.icon-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin-left: 14px;
 
     width: 16px;
     height: 15px;
-
-    line-height: 1.71;
-    color: var(--primary-text-color);
-    background: var(--secondary-text-color);
+    border: 2px solid var(--secondary-text-color);
+    border-radius: 2px;
 }
 
 .contract-conditions {
@@ -1040,6 +1077,7 @@ h1, h2, h3, p, section, ul {
     color: var(--white-color);
     background: #2196F3;
     border-radius: 4px;
+    border: none;
     cursor: pointer;
     transition: box-shadow 250ms var(--main-animation),
     background-color 250ms var(--main-animation);
