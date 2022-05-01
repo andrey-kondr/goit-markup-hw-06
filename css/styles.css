@@ -561,11 +561,7 @@ h1, h2, h3, p, section, ul {
 }
 
 .join-us {
-    margin-right: 93px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    margin-right: auto;
 
     color: var(--white-color);
     font-weight: 700;
@@ -879,16 +875,14 @@ h1, h2, h3, p, section, ul {
     top: 50%;
     left: 50%;
 
+    padding: 40px;
+
     width: 528px;
     height: 581px;
 
     background-color: var(--white-color);
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms var(--main-animation);
-}
-
-.backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(0.8);
 }
 
 .modal-button {
@@ -913,7 +907,6 @@ h1, h2, h3, p, section, ul {
 }
 
 .modal-button:hover {
-    /* border-color: var(--accent-color); */
     fill: var(--accent-color);
     transition: border-color 250ms var(--main-animation),
     fill 250ms var(--main-animation);
@@ -923,12 +916,6 @@ h1, h2, h3, p, section, ul {
 /* --- */
 /* css for the modal window's form */
 /* --- */
-
-.form {
-    padding: 40px;
-    margin: 0;
-    border: 0;
-}
 
 .form-name {
     margin-bottom: 12px;
@@ -964,6 +951,7 @@ h1, h2, h3, p, section, ul {
     border-radius: 4px;
     transition: border-color 250ms var(--main-animation);
     outline: none;
+
     /* make cursor color */
     /* caret-color: var(--accent-color); */
 }
@@ -973,7 +961,8 @@ h1, h2, h3, p, section, ul {
     top: 0;
     left: 12px;
     transform: translateY(+50%);
-    transition: fill 250ms var(--main-animation);
+    transition: fill 250ms var(--main-animation),
+    border-color 250ms var(--main-animation);
 }
 
 .input-area:focus-within,
@@ -994,6 +983,7 @@ h1, h2, h3, p, section, ul {
     resize: none;
     transition: border-color 250ms var(--main-animation);
     outline: none;
+    
     /* make cursor color */
     /* caret-color: var(--accent-color); */
     
